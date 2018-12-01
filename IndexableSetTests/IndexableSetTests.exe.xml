@@ -1,0 +1,9 @@
+<testsuites>
+	<testsuite name="AllTests" tests="5">
+		<testcase classname="AllTests" name="highNegativeIndexThrowsTest"/>
+		<testcase classname="AllTests" name="negativeIndexTest"/>
+		<testcase classname="AllTests" name="positivIndexTest"/>
+		<testcase classname="AllTests" name="intMaxIndexThrowsTest"/>
+		<testcase classname="AllTests" name="intMinIndexThrowsTest"/>
+	</testsuite>
+</testsuites>

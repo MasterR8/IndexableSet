@@ -1,9 +1,33 @@
 <testsuites>
-	<testsuite name="AllTests" tests="5">
+	<testsuite name="AllTests" tests="13">
 		<testcase classname="AllTests" name="highNegativeIndexThrowsTest"/>
-		<testcase classname="AllTests" name="negativeIndexTest"/>
-		<testcase classname="AllTests" name="positivIndexTest"/>
+		<testcase classname="AllTests" name="negativeIndexTest">
+			<failure message="..\src\Test.cpp:37 negativeIndexTest: std::string { &quot;d forth&quot; } == mySet[-1] expected:	d forth	but was:	a first	">
+negativeIndexTest: std::string { &quot;d forth&quot; } == mySet[-1] expected:	d forth	but was:	a first	
+			</failure>
+		</testcase>
+		<testcase classname="AllTests" name="negativeIndexAtTest">
+			<failure message="..\src\Test.cpp:46 negativeIndexAtTest: std::string { &quot;d forth&quot; } == mySet.at(-1) expected:	d forth	but was:	a first	">
+negativeIndexAtTest: std::string { &quot;d forth&quot; } == mySet.at(-1) expected:	d forth	but was:	a first	
+			</failure>
+		</testcase>
+		<testcase classname="AllTests" name="positivIndexTest">
+			<failure message="..\src\Test.cpp:19 positivIndexTest: std::string { &quot;c third&quot; } == mySet[2] expected:	c third	but was:	b second	">
+positivIndexTest: std::string { &quot;c third&quot; } == mySet[2] expected:	c third	but was:	b second	
+			</failure>
+		</testcase>
+		<testcase classname="AllTests" name="positivIndexAtTest">
+			<failure message="..\src\Test.cpp:28 positivIndexAtTest: std::string { &quot;c third&quot; } == mySet.at(2) expected:	c third	but was:	b second	">
+positivIndexAtTest: std::string { &quot;c third&quot; } == mySet.at(2) expected:	c third	but was:	b second	
+			</failure>
+		</testcase>
+		<testcase classname="AllTests" name="firstNegativeEqualsLastPositiveTest"/>
+		<testcase classname="AllTests" name="lastNegativeEqualsFirstPositiveTest"/>
 		<testcase classname="AllTests" name="intMaxIndexThrowsTest"/>
 		<testcase classname="AllTests" name="intMinIndexThrowsTest"/>
+		<testcase classname="AllTests" name="createWithIteratorsTest"/>
+		<testcase classname="AllTests" name="frontEqualsFirstPositiveTest"/>
+		<testcase classname="AllTests" name="backEqualsFirstNegativeTest"/>
+		<testcase classname="AllTests" name="caseLessCompareTest"/>
 	</testsuite>
 </testsuites>

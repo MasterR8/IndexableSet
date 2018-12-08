@@ -18,22 +18,37 @@ class IndexableSet : public std::set<T, COMPARE>
 
 public:
 	IndexableSet() = default;
-	template <typename iter>
-	IndexableSet(iter begin, iter end) : container(begin, end){}
-	IndexableSet(std::initializer_list<T> list) : container(list){} // @suppress("Non-'explicit' Single Argument Constructor")
 
-	T operator[](int index){
+	T at(int index) const {
 		auto size = this->size();
 		if(index < 0){
 			index = index + size;
 		}
 		size_type indexSizeType = static_cast<size_type>(index);
-		if(this->empty() || index < 0 || indexSizeType >= size){
-			throw std::invalid_argument("index");
+		if(index < 0 || indexSizeType >= size){
+			throw std::out_of_range("index");
 		}
-		auto iter = this->begin();
-		std::advance(iter, indexSizeType);
-		return *iter;
+		if(indexSizeType < this->size()/2){
+			auto iter = this->begin();
+			std::advance(iter, indexSizeType);
+			return *iter;
+		} else {
+			auto iter = this->rbegin();
+			std::advance(iter, indexSizeType);
+			return *iter;
+		}
+	}
+
+	T operator[](int index) const {
+		return this->at(index);
+	}
+
+	T front() const {
+		return this->at(0);
+	}
+
+	T back() const {
+		return this->at(-1);
 	}
 };
 
